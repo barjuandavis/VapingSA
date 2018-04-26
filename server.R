@@ -20,7 +20,7 @@ server <- function(input, output, session) {
   
   # plot twitter sentiment analysis
   output$twitterSA <- renderPlot({
-    temp <- sort(tweetSentiment)
+    temp <- tweetSentiment
     percent <- round(temp/sum(temp)*100, digits=2)
     lbls <- paste(names(temp), " ", percent, "% (", temp, " pts)", sep="")
     pie(temp, labels = lbls, col=rainbow(10), main="Tweets Sentiment Analysis")
@@ -28,7 +28,7 @@ server <- function(input, output, session) {
   
   # plot NY times sentiment analysis
   output$nytimesSA <- renderPlot({
-    temp <- round(sort(nySentiment), digits=2)
+    temp <- round(nySentiment, digits=2)
     percent <- round(temp/sum(temp)*100, digits=2)
     lbls <- paste(names(temp), " ", percent, "% (", temp, " pts)", sep="")
     pie(temp, labels = lbls, col=rainbow(10), main="NY Times Sentiment Analysis")
