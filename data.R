@@ -6,8 +6,7 @@ library(wordcloud)
 library(dplyr)
 library(syuzhet)
 
-# uncomment on run
-# ===== START =====
+# setup twitter oauth
 api_key <- "XXX"
 api_sec <- "XXX"
 access_token <- "XXX"
@@ -17,11 +16,13 @@ setup_twitter_oauth(api_key,
                     access_token,
                     access_token_sec
 )
+
+# fetch tweets
 print("Fetching tweets")
 vapeSearch <- searchTwitter(searchString = "vape -filter:retweets", n = 1000,lang = "en", since = '2014-03-01', until = toString(Sys.Date()))
 print("Fetching tweets done")
-# ====== END ======
 
+# convert to dataframes
 vapeDF <- vapeSearch %>% twListToDF
 vapeDF$text <- sapply(vapeDF$text,function(row) iconv(row, "latin1", "ASCII", sub=""))
 print("Creating tweet corpus")
@@ -49,6 +50,7 @@ tdm <- as.matrix(tdm) # turn these tweets into matrix form
 
 wordFreq <- rowSums(tdm)
 
+# twitter sentiment analysis
 tweet <- iconv(vapeDF$text, to = 'utf-8')
 print("Analyzing tweet sentiment")
 tweetSentiment <- get_nrc_sentiment(tweet)
