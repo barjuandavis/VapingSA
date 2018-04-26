@@ -17,7 +17,7 @@ After we get the points, we sum it up from each tweet or article to reveal the g
 We also add a wordcloud of Twitter to determine what words they are using when talking about vaping. It is simply a text mining process and it's collecting words from tweets and count it. Bigger cloud means the word has higher frequency across all tweets. [(Ah-Hwee Tan, 1999; ](http://www.ntu.edu.sg/home/asahtan/papers/tm_pakdd99.pdf)[ Weiwei Cui, 2010)](https://ieeexplore.ieee.org/abstract/document/5429600/)
 
 
-### How To Use
+### How to Use
 
 You need to provide your own Twitter and New York Times API key in order to use this project. 
 There are five keys in total that you have to provide, four for Twitter and one for New York Times.
