@@ -1,4 +1,4 @@
-# Vaping: A Sentiment Analysis of Vaping from Twitter and New York Times
+# Vaping: A Sentiment Analysis towards Vaping from Twitter and New York Times
 
 ### Introduction
 
