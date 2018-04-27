@@ -26,6 +26,7 @@ ui <- fluidPage(
       div(
         # display twitter sentiment analysis
         plotOutput(outputId='twitterSA'),
+        plotOutput(outputId='twitterSABar'),
         class = 'panel-body'
       ),
       class='panel panel-primary'
@@ -35,6 +36,7 @@ ui <- fluidPage(
       div(
         # display ny times sentiment analysis
         plotOutput(outputId='nytimesSA'),
+        plotOutput(outputId='nytimesSABar'),
         class = 'panel-body'
       ),
       class='panel panel-primary'

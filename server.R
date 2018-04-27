@@ -25,6 +25,12 @@ server <- function(input, output, session) {
     lbls <- paste(names(temp), " ", percent, "% (", temp, " pts)", sep="")
     pie(temp, labels = lbls, col=rainbow(10), main="Tweets Sentiment Analysis")
   })
+  output$twitterSABar <- renderPlot({
+    temp <- tweetSentiment
+    percent <- temp/sum(temp)*100
+    # lbls <- paste(names(temp), " ", percent, "% (", temp, " pts)", sep="")
+    barplot(percent, ylab = 'percentage (%)', xlab = 'emotion', col=rainbow(10), main="Tweets Sentiment Analysis", ylim = c(0,30))
+  })
   
   # plot NY times sentiment analysis
   output$nytimesSA <- renderPlot({
@@ -32,5 +38,11 @@ server <- function(input, output, session) {
     percent <- round(temp/sum(temp)*100, digits=2)
     lbls <- paste(names(temp), " ", percent, "% (", temp, " pts)", sep="")
     pie(temp, labels = lbls, col=rainbow(10), main="NY Times Sentiment Analysis")
+  })
+  output$nytimesSABar <- renderPlot({
+    temp <- nySentiment
+    percent <- temp/sum(temp)*100
+    # lbls <- paste(names(temp), " ", percent, "% (", temp, " pts)", sep="")
+    barplot(percent, ylab = 'percentage (%)', xlab = 'emotion', col=rainbow(10), main="NY Times Sentiment Analysis", ylim = c(0,30))
   })
 }
